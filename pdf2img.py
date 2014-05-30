@@ -31,7 +31,7 @@ class Pdf2Img(object):
                 os.path.abspath(self.path))
             os.makedirs(self.path, mode=0700)
 
-    def get_pages(self, path):
+    def count_pages(self, path):
         process = subprocess.Popen(
             COMMAND_COUNT_PDF_PAGES.format(**{'path': path}),
             bufsize=-1,
@@ -70,7 +70,7 @@ class Pdf2Img(object):
     def convert(self, path, limit=5):
         """Converts a pdf to images using ghostscript"""
         pdf = open(path, 'r')
-        pages = self.get_pages(path)
+        pages = self.count_pages(path)
         exists, folder = self.destination_folder(pdf)
         resoruces = []
 
