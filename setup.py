@@ -10,5 +10,9 @@ setup(
     packages=['pdf2img'],
     include_package_data=True,
     zip_safe=False,
-    install_requires=[]
+    install_requires=['setuptools'],
+    entry_points="""
+    [console_scripts]
+    pdf2img = pdf2img.command:main
+    """,
 )

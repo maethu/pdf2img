@@ -21,9 +21,10 @@ COMMAND_CONVERT_PDF_PAGE = ['gs',
 
 class Pdf2Img(object):
 
-    def __init__(self, output='./var'):
+    def __init__(self, output='./var', limit=5):
         self.path = output
         self.create_structure()
+        self.limit = limit
 
     def create_structure(self):
         if not os.path.exists(self.path):
@@ -67,20 +68,20 @@ class Pdf2Img(object):
             resources.append('{0}/{1}'.format(folder, file_))
         return resources
 
-    def convert(self, path, limit=5):
+    def convert(self, pdf_file):
         """Converts a pdf to images using ghostscript"""
-        pdf = open(path, 'r')
-        pages = self.count_pages(path)
+        pdf = open(pdf_file, 'r')
+        pages = self.count_pages(pdf_file)
         exists, folder = self.destination_folder(pdf)
         resoruces = []
 
         if exists:
             return self.get_resources(folder)
 
-        if limit == -1:
-            limit = pages
+        if self.limit == -1:
+            self.limit = pages
 
-        for page in range(1, pages + 1)[:limit]:
+        for page in range(1, pages + 1)[:self.limit]:
 
             output = './var/{0}/{1}_image.png'.format(folder, page)
 
