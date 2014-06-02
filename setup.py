@@ -7,7 +7,7 @@ setup(
     author_email="mathias.leimgruber@gmail.com",
     license='Beerware',
     long_description=open('README.md', 'rb').read(),
-    packages=[],
+    packages=['pdf2img'],
     include_package_data=True,
     zip_safe=False,
     install_requires=[]

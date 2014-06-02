@@ -1,0 +1,5 @@
+recursive-include pdf2img *
+include *.md
+global-exclude *.pyc
+global-exclude *.mo
+global-exclude ._*

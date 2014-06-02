@@ -3,7 +3,7 @@ Introduction
 
 pdf2img is simple python lib which converts pdf pages to images using ghostscript.
 
-It also provides command line interface.
+It also provides a command line interface (:construction:).
 
 
 Development
